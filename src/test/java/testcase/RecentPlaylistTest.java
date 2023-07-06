@@ -31,7 +31,7 @@ public class RecentPlaylistTest {
 	
 	@Test
 	public void recentPlaylistTestWithValidInput() {
-		app.recentPlaylist("s4", recentPlayed);
+		recentPlayed = app.recentPlaylist("s4", recentPlayed);
 		Assert.assertTrue(recentPlayed.size()==3);
 		Assert.assertEquals("[s2, s3, s4]", recentPlayed.toString());
 	}

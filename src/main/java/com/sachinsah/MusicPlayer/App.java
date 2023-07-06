@@ -26,13 +26,15 @@ public class App
     	app.recentPlaylist(songs[2], recentPlayed);
     }
     
-    public void recentPlaylist(String newSongPlayed, Deque<String> recentPlayed) {
+    public Deque<String> recentPlaylist(String newSongPlayed, Deque<String> recentPlayed) {
 
     	// add new song to playlist only if it is not there recentPlaylist 
     	if(!recentPlayed.contains(newSongPlayed)) {
         	recentPlayed.removeFirst();
         	recentPlayed.addLast(newSongPlayed);    	
     	}
-    	System.out.println(recentPlayed);
+    	
+    	return recentPlayed;
+    	//System.out.println(recentPlayed);
     }
 }

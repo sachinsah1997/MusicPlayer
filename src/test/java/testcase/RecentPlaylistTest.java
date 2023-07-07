@@ -29,11 +29,18 @@ public class RecentPlaylistTest {
 		recentPlayed.add("s3");
 	}
 	
-	@Test
+	@Test(priority = 1)
 	public void recentPlaylistTestWithValidInput() {
 		recentPlayed = app.recentPlaylist("s4", recentPlayed);
 		Assert.assertTrue(recentPlayed.size()==3);
 		Assert.assertEquals("[s2, s3, s4]", recentPlayed.toString());
+	}
+
+	//null value is not handled in method so we can expect nullpointer exception
+	@Test(expectedExceptions = NullPointerException.class, priority = 2)
+	public void recentPlaylistTestWithInvalidInput() {
+		recentPlayed = app.recentPlaylist(null, null);
+		Assert.assertNull(recentPlayed);
 	}
 	
 	@AfterMethod
